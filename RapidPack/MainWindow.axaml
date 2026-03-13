@@ -10,6 +10,9 @@
     
     
     <!--
+    
+  <StackPanel Margin="20" Spacing="12">
+    
     <TextBlock Text="RapidPack Wycena Przesylek"
                FontSize="20"
                FontWeight="Bold"
@@ -34,6 +37,29 @@
     <TextBlock Text="Uslugi dodatkowe:" FontWeight="SemiBold"/>
     <CheckBox x:Name="ExpressCheckBox" Content="Ekspres (+15 zl)"/>
     
+    
+    <Button x:Name="CalculateButton"
+            Content="Wycen"
+            HorizontalAlignment="Stretch"
+            HorizontalContentAlignment="Center"
+            FontSize="16"
+            FontWeight="Bold"
+            Padding="10"
+            Click="CalculateButton_Click" />
+            
+            <Border BorderBrush="Gray"
+            BorderThickness="1"
+            CornerRadius="4"
+            Padding="12"
+            IsVisible="False"
+            x:Name="ResultBorder">
+      <TextBlock x:Name="ResultTextBlock"
+                 TextWrapping="Wrap"
+                 FontSize="14" />
+    </Border>
+ 
+  </StackPanel>
+  
     -->
     
     
