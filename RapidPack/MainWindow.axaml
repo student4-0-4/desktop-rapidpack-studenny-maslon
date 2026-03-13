@@ -7,5 +7,34 @@
         Title="RapidPack Wycena Przesylek"
         Width="500"
         Height="640">
-    Test!
+    
+    
+    <!--
+    <TextBlock Text="RapidPack Wycena Przesylek"
+               FontSize="20"
+               FontWeight="Bold"
+               HorizontalAlignment="Center"/>
+    
+    <TextBlock Text="Waga (kg):" FontWeight="SemiBold"/>
+    <TextBox x:Name="WeightTextBox" Watermark="np. 5"/>
+    
+    
+    <TextBlock Text="Wymiary (cm):" FontWeight="SemiBold"/>
+    <TextBox x:Name="HeightTextBox" Watermark="Wysokosc"/>
+    <TextBox x:Name="WidthTextBox"  Watermark="Szerokosc"/>
+    <TextBox x:Name="DepthTextBox"  Watermark="Glebokosc"/>
+    
+    <TextBlock Text="Typ przesylki:" FontWeight="SemiBold"/>
+    <ComboBox x:Name="ShipmentTypeComboBox" Width="200" HorizontalAlignment="Left">
+        <ComboBoxItem Content="Standardowa"/>
+        <ComboBoxItem Content="Ostroznie"/>
+        <ComboBoxItem Content="Paleta"/>
+    </ComboBox>
+    
+    <TextBlock Text="Uslugi dodatkowe:" FontWeight="SemiBold"/>
+    <CheckBox x:Name="ExpressCheckBox" Content="Ekspres (+15 zl)"/>
+    
+    -->
+    
+    
 </Window>
