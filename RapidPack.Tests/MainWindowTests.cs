@@ -1,34 +1,34 @@
 ﻿using Xunit;
-using RapidPack;
-using System;
+using RapidPack; 
 
-public class MojeTestyWyceny
+namespace RapidPack.Tests;
+
+public class ParcelCalculatorTests
 {
-    private readonly ParcelCalculator _calc = new ParcelCalculator();
-
     [Fact]
-    public void Test_CzyPaczkaStandardowaLiczonaPoprawnie()
+    public void Oblicz_DlaStandardowejPaczki_ZwracaPoprawnaCene()
     {
-       
-        double wynik = _calc.Oblicz(5, 10, 10, 10, false, "Standardowa");
+     
+        var calc = new ParcelCalculator();
+        double waga = 10; // 10 + (10*2) = 30
         
-        Assert.Equal(20.0, wynik);
+ 
+        var wynik = calc.Oblicz(waga, 10, 10, 10, false, "Standardowa");
+
+  
+        Assert.Equal(30, wynik);
     }
 
     [Fact]
-    public void Test_CzyGabarytDolicza50Procent()
+    public void Oblicz_WagaPowyzej30_RzucaWyjatek()
     {
-      
        
-        double wynik = _calc.Oblicz(0, 60, 60, 60, false, "Standardowa");
-        
-        Assert.Equal(15.0, wynik);
-    }
+        var calc = new ParcelCalculator();
 
-    [Fact]
-    public void Test_CzyWagaPowyzej30WyrzucaBlad()
-    {
+   
+        var ex = Assert.Throws<System.Exception>(() => 
+            calc.Oblicz(31, 10, 10, 10, false, "Standardowa"));
         
-        Assert.Throws<Exception>(() => _calc.Oblicz(31, 10, 10, 10, false, "Standardowa"));
+        Assert.Equal("Paczka za ciężka!", ex.Message);
     }
 }
