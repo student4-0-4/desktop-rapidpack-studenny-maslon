@@ -25,5 +25,11 @@ public partial class MainWindow : Window
             ResultTextBlock.Text = "Błąd: Wprowadź poprawne liczby!";
             return;
         }
+        var comboItem = (ComboBoxItem)ShipmentTypeComboBox.SelectedItem;
+        string typ = comboItem?.Content?.ToString() ?? "Standardowa";
+        bool czyEkspres = ExpressCheckBox.IsChecked ?? false;
+
+        var calculator = new ParcelCalculator();
+        double wynik = calculator.Oblicz(waga, szer, wys, gleb, czyEkspres, typ);
     }
 }
