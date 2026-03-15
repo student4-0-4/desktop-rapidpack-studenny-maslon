@@ -15,5 +15,15 @@ public partial class MainWindow : Window
         string wysTxt = HeightTextBox.Text;
         string szerTxt = WidthTextBox.Text;
         string glebTxt = DepthTextBox.Text;
+        
+        if (!double.TryParse(WeightTextBox.Text, out double waga) ||
+            !double.TryParse(HeightTextBox.Text, out double wys) ||
+            !double.TryParse(WidthTextBox.Text, out double szer) ||
+            !double.TryParse(DepthTextBox.Text, out double gleb))
+        {
+            ResultBorder.IsVisible = true;
+            ResultTextBlock.Text = "Błąd: Wprowadź poprawne liczby!";
+            return;
+        }
     }
 }
