@@ -8,4 +8,12 @@ public partial class MainWindow : Window
     {
         InitializeComponent();
     }
+    public void CalculateButton_Click(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
+    {
+        
+        string wagaTxt = WeightTextBox.Text;
+        string wysTxt = HeightTextBox.Text;
+        string szerTxt = WidthTextBox.Text;
+        string glebTxt = DepthTextBox.Text;
+    }
 }
