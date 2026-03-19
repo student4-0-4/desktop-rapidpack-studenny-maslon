@@ -9,7 +9,7 @@
         Height="640">
     
     
-    <!--
+    
     
   <StackPanel Margin="20" Spacing="12">
     
@@ -30,7 +30,7 @@
     <TextBlock Text="Typ przesylki:" FontWeight="SemiBold"/>
     <ComboBox x:Name="ShipmentTypeComboBox" Width="200" HorizontalAlignment="Left">
         <ComboBoxItem Content="Standardowa"/>
-        <ComboBoxItem Content="Ostroznie"/>
+        <ComboBoxItem Content="Ostrożnie"/>
         <ComboBoxItem Content="Paleta"/>
     </ComboBox>
     
@@ -45,7 +45,7 @@
             FontSize="16"
             FontWeight="Bold"
             Padding="10"
-            Click="CalculateButton_Click" />
+            Click="CalculateButton_Click"/>
             
             <Border BorderBrush="Gray"
             BorderThickness="1"
@@ -60,7 +60,7 @@
  
   </StackPanel>
   
-    -->
+    
     
     
 </Window>
