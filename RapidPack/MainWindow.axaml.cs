@@ -57,4 +57,6 @@ public partial class MainWindow : Window
         ResultTextBlock.Foreground = blad ? Brushes.Red : Brushes.Green;
         ResultBorder.IsVisible = true;
     }
+
+  
 }
