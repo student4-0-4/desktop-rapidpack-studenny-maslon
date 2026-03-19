@@ -26,6 +26,7 @@
     <TextBox x:Name="HeightTextBox" Watermark="Wysokość"/>
     <TextBox x:Name="WidthTextBox"  Watermark="Szerokość"/>
     <TextBox x:Name="DepthTextBox"  Watermark="Głębokosc"/>
+      
     
     <TextBlock Text="Typ przesylki:" FontWeight="SemiBold"/>
     <ComboBox x:Name="ShipmentTypeComboBox" Width="200" HorizontalAlignment="Left">
@@ -33,7 +34,7 @@
         <ComboBoxItem Content="Ostrożnie"/>
         <ComboBoxItem Content="Paleta"/>
     </ComboBox>
-    
+     
     <TextBlock Text="Usługi dodatkowe:" FontWeight="SemiBold"/>
     <CheckBox x:Name="ExpressCheckBox" Content="Ekspres (+15 zl)"/>
     

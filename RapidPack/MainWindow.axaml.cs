@@ -15,7 +15,7 @@ public partial class MainWindow : Window
         ShipmentTypeComboBox.SelectedIndex = 0;
     }
 
-    private void CalculateButton_Click(object sender, RoutedEventArgs e)
+    private void CalculateButton_Click(object sender, RoutedEventArgs e) 
     {
         bool w1 = double.TryParse(WeightTextBox.Text, out double waga);
         bool w2 = double.TryParse(HeightTextBox.Text, out double wys);

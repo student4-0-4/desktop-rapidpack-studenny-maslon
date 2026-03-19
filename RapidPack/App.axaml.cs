@@ -5,7 +5,7 @@ using Avalonia.Markup.Xaml;
 namespace RapidPack;
 
 public partial class App : Application
-{
+{ 
     public override void Initialize()
     {
         AvaloniaXamlLoader.Load(this);
