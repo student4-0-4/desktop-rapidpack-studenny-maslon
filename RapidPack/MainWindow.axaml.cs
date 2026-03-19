@@ -1,51 +1,62 @@
 using System;
 using Avalonia.Controls;
+using Avalonia.Interactivity;
+using Avalonia.Media;
 
 namespace RapidPack;
 
 public partial class MainWindow : Window
 {
+    private readonly ParcelCalculator _calculator = new ParcelCalculator();
+
     public MainWindow()
     {
         InitializeComponent();
+        ShipmentTypeComboBox.SelectedIndex = 0;
     }
 
-    public void CalculateButton_Click(object? sender, Avalonia.Interactivity.RoutedEventArgs e)
+    private void CalculateButton_Click(object sender, RoutedEventArgs e) 
     {
+        bool w1 = double.TryParse(WeightTextBox.Text, out double waga);
+        bool w2 = double.TryParse(HeightTextBox.Text, out double wys);
+        bool w3 = double.TryParse(WidthTextBox.Text,  out double szer);
+        bool w4 = double.TryParse(DepthTextBox.Text,  out double gleb);
 
-        string wagaTxt = WeightTextBox.Text;
-        string wysTxt = HeightTextBox.Text;
-        string szerTxt = WidthTextBox.Text;
-        string glebTxt = DepthTextBox.Text;
-
-        if (!double.TryParse(WeightTextBox.Text, out double waga) ||
-            !double.TryParse(HeightTextBox.Text, out double wys) ||
-            !double.TryParse(WidthTextBox.Text, out double szer) ||
-            !double.TryParse(DepthTextBox.Text, out double gleb))
+        if (!w1 || !w2 || !w3 || !w4)
         {
-            ResultBorder.IsVisible = true;
-            ResultTextBlock.Text = "Błąd: Wprowadź poprawne liczby!";
+            PokazWynik("Blad: Wpisz poprawne liczby we wszystkich polach.", blad: true);
             return;
         }
 
-        if (waga > 30)
+        string typ = (ShipmentTypeComboBox.SelectedItem as ComboBoxItem)?.Content?.ToString() ?? "Standardowa";
+        bool czyEkspres = ExpressCheckBox.IsChecked == true;
+
+        try
         {
-            ResultBorder.IsVisible = true;
-            ResultTextBlock.Text = "Błąd: Paczka jest za ciężka (max 30kg)!";
+            double cena = _calculator.Oblicz(waga, szer, wys, gleb, czyEkspres, typ);
+
+            string wynik =
+                $"Waga:    {waga} kg\n" +
+                $"Wymiary: {wys} x {szer} x {gleb} cm\n" +
+                $"Typ:     {typ}\n" +
+                $"Ekspres: {(czyEkspres ? "Tak" : "Nie")}\n" +
+                $"-------------------\n" +
+                $"CENA:    {cena:F2} zl";
+
+            PokazWynik(wynik, blad: false);
         }
-        else
+        catch (Exception ex)
         {
-
-            var comboItem = (ComboBoxItem)ShipmentTypeComboBox.SelectedItem;
-            string typ = comboItem?.Content?.ToString() ?? "Standardowa";
-            bool czyEkspres = ExpressCheckBox.IsChecked ?? false;
-
-            var calculator = new ParcelCalculator();
-            double wynik = calculator.Oblicz(waga, szer, wys, gleb, czyEkspres, typ);
-
-
-            ResultBorder.IsVisible = true;
-            ResultTextBlock.Text = "Do zapłaty: " + wynik + " zł";
+            PokazWynik(ex.Message, blad: true);
         }
     }
+
+    private void PokazWynik(string tekst, bool blad)
+    {
+        ResultTextBlock.Text = tekst;
+        ResultTextBlock.Foreground = blad ? Brushes.Red : Brushes.Green;
+        ResultBorder.IsVisible = true;
+    }
+
+  
 }
