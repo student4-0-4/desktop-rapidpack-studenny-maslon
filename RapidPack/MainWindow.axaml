@@ -13,7 +13,7 @@
     
   <StackPanel Margin="20" Spacing="12">
     
-    <TextBlock Text="RapidPack Wycena Przesylek"
+    <TextBlock Text="RapidPack Wycena Przesyłek"
                FontSize="20"
                FontWeight="Bold"
                HorizontalAlignment="Center"/>
@@ -23,29 +23,30 @@
     
     
     <TextBlock Text="Wymiary (cm):" FontWeight="SemiBold"/>
-    <TextBox x:Name="HeightTextBox" Watermark="Wysokosc"/>
-    <TextBox x:Name="WidthTextBox"  Watermark="Szerokosc"/>
-    <TextBox x:Name="DepthTextBox"  Watermark="Glebokosc"/>
+    <TextBox x:Name="HeightTextBox" Watermark="Wysokość"/>
+    <TextBox x:Name="WidthTextBox"  Watermark="Szerokość"/>
+    <TextBox x:Name="DepthTextBox"  Watermark="Głębokosc"/>
+      
     
     <TextBlock Text="Typ przesylki:" FontWeight="SemiBold"/>
     <ComboBox x:Name="ShipmentTypeComboBox" Width="200" HorizontalAlignment="Left">
         <ComboBoxItem Content="Standardowa"/>
-        <ComboBoxItem Content="Ostroznie"/>
+        <ComboBoxItem Content="Ostrożnie"/>
         <ComboBoxItem Content="Paleta"/>
     </ComboBox>
-    
-    <TextBlock Text="Uslugi dodatkowe:" FontWeight="SemiBold"/>
+     
+    <TextBlock Text="Usługi dodatkowe:" FontWeight="SemiBold"/>
     <CheckBox x:Name="ExpressCheckBox" Content="Ekspres (+15 zl)"/>
     
     
     <Button x:Name="CalculateButton"
-            Content="Wycen"
+            Content="Wyceń"
             HorizontalAlignment="Stretch"
             HorizontalContentAlignment="Center"
             FontSize="16"
             FontWeight="Bold"
             Padding="10"
-            Click="CalculateButton_Click" />
+            Click="CalculateButton_Click"/>
             
             <Border BorderBrush="Gray"
             BorderThickness="1"
@@ -59,8 +60,7 @@
     </Border>
  
   </StackPanel>
-  
- 
+    
     
     
 </Window>
